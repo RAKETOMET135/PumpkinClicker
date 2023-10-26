@@ -1,0 +1,139 @@
+.Background {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.MainFrame {
+    width: 500px;
+    height: 750px;
+    background-color: #ffffff;
+    border-radius: 25px;
+    align-self: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: #e48a02 solid 5px;
+}
+#Desc {
+    text-align: center;
+    font-family: Roboto;
+}
+#DescImage {
+    width: 275px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.Heading {
+    font-family: Roboto;
+    text-align: center;
+    font-size: 50px;
+}
+
+.Button {
+    width: 250px;
+    height: 50px;
+    position: absolute;
+    bottom: 10%;
+    transform: translate(50%, 0%);
+    border-radius: 25px;
+    background-color: #e48a02;
+    font-family: Roboto;
+    font-size: 175%;
+}
+
+.CurrencyFrame {
+    width: 500px;
+    height: 50px;
+    background-color: #ffffff;
+    border-radius: 25px;
+    border: #e48a02 solid 5px;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#CurrencyImage {
+    width: 50px;
+    height: auto;
+    position: absolute;
+    right: 5%;
+    display: inline;
+}
+#CurrencyAmount {
+    font-family: Roboto;
+    display: inline-block;
+    text-align: right;
+    width: 500px;
+    height: 50px;
+    position: absolute;
+    right: 20%;
+}
+
+.BoostFrame {
+    width: 500px;
+    height: 50px;
+    background-color: #ffffff;
+    border-radius: 25px;
+    border: #e48a02 solid 5px;
+    position: absolute;
+    right: 1%;
+    bottom: 10%;
+}
+#BoostAmount {
+    font-family: Roboto;
+    font-weight: bold;
+    display: inline-block;
+    text-align: center;
+    width: 500px;
+    height: 50px;
+    position: absolute;
+}
+
+.EndGame {
+    width: 500px;
+    height: 50px;
+    border-radius: 25px;
+    position: absolute;
+    left: 50%;
+    bottom: 6.5%;
+    transform: translate(-50%, -50%);
+}
+#EndGameButton {
+    top: 1%;
+    font-size: 15px;
+}
+
+.UpgradesFrame {
+    width: 500px;
+    height: 750px;
+    background-color: #ffffff;
+    border-radius: 25px;
+    border: #e48a02 solid 5px;
+    position: absolute;
+    right: 1%;
+}
+#Upgrades {
+    overflow: auto;
+    width: 500px;
+    height: 578px;
+    
+}
+
+#ClickPumpkin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #00000000;
+    border: #00000000 solid 0px;
+}
+#ClickImage {
+    width: 500px;
+    height: auto;
+}
