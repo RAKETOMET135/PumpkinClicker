@@ -3,6 +3,8 @@ var play = document.getElementById("Play")
 var clickPumpkin = document.getElementById("ClickImage")
 var boostDisplay = document.getElementById("BoostAmount")
 var endGame = document.getElementById("EndGameButton")
+var saveBtn = document.getElementById("Save")
+var resetDataBtn = document.getElementById("ResetData")
 
 var pumpkinText = document.getElementById("CurrencyAmount")
 var pumpkins = 0
@@ -10,12 +12,14 @@ var abbrevitationMaxDigits = 50
 
 var upgrades = document.getElementById("Upgrades")
 
-const upgradePrice = []
+let upgradePrice = []
 const upgradeBoost = []
-const upgradePurchase = []
+let upgradePurchase = []
 const upgradePriceIncrease = []
 var upgradeCount = 0
 var upgradeValue = 1
+
+var dataLoaded = false
 
 
 //startup
@@ -35,6 +39,7 @@ http.onload = function(){
         upg = data
 
         var t = 0
+
         for (var upgrade of data.upgrades){
             var u = document.createElement("div")
             upgrades.appendChild(u)
@@ -71,10 +76,12 @@ http.onload = function(){
             desc.style.top = -50
             u.id = "Upgrade:" + t
 
-            upgradePrice.push(upgrade.price)
+            if (!dataLoaded){
+                upgradePrice.push(upgrade.price)
+                upgradePurchase.push(0)
+            }
             upgradeBoost.push(upgrade.upgrade)
             upgradePriceIncrease.push(upgrade.price_increase)
-            upgradePurchase.push(0)
             t++
             upgradeCount++
         }
@@ -103,6 +110,51 @@ http.onload = function(){
 
 
 //functions
+function SaveData(){
+    localStorage.setItem("Pumpkins", pumpkins)
+    localStorage.setItem("UpgradeValue", upgradeValue)
+    localStorage.setItem("UpgradePurchase", JSON.stringify(upgradePurchase))
+    localStorage.setItem("UpgradePrice", JSON.stringify(upgradePrice))
+}
+
+function LoadData(){
+    if (localStorage.getItem("Pumpkins") != null){
+        var testPumpkins = parseInt(localStorage.getItem("Pumpkins"))
+        if (testPumpkins != null){
+            pumpkins = testPumpkins
+        }
+        var testUpgradeValue = parseInt(localStorage.getItem("UpgradeValue"))
+        if (testUpgradeValue != null){
+            upgradeValue = testUpgradeValue
+        }
+        //upgradePurchase = JSON.parse(localStorage.getItem("UpgradePurchase"))
+        let a = JSON.parse(localStorage.getItem("UpgradePurchase"))
+        if (a != null){
+            upgradePurchase = a
+        }
+        let b = JSON.parse(localStorage.getItem("UpgradePrice"))
+        if (b != null){
+            upgradePrice = b
+        }
+        dataLoaded = true
+
+        UpdateCurrency()
+    }
+}
+
+function ResetData(){
+    localStorage.clear()
+}
+
+function UpdatePrice(){
+    let uButtons = document.querySelectorAll(".UpgradeButton")
+    for (let i = 0; i < uButtons.length; i++){
+        var thisId = uButtons[i].id.substring(9, uButtons[i].id.length)
+        thisId = thisId.toString()
+        uButtons[i].innerText = "Purchase upgrade for " + AbbrNumber(upgradePrice[thisId]) + " pumpkins"
+    }
+}
+
 function HoverEnter(btn, hColor){
     btn.setAttribute("style", hColor)
 }
@@ -124,6 +176,8 @@ function Play(){
     var mainMenu = document.getElementById("Menu")
     mainMenu.setAttribute("style", "visibility: hidden")
     game.setAttribute("style", "visibility: visible")
+    LoadData()
+    UpdatePrice()
 }
 
 function PumpkinHoverEnter(){
@@ -134,6 +188,7 @@ function PumpkinHoverExit(){
 }
 function PumpkinClick(){
     pumpkins += 1 * upgradeValue
+    
     UpdateCurrency()
 }
 
@@ -203,6 +258,9 @@ function UpdateCurrency(){
 
 
 //events
+document.body.onload = function(){
+   // LoadData()
+}
 play.onmouseenter = function(){
     HoverEnter(play, "background-color: #fca015")
 }
@@ -220,6 +278,24 @@ endGame.onmouseleave = function(){
 }
 endGame.onclick = function(){
     EndGame()
+}
+saveBtn.onmouseenter = function(){
+    HoverEnter(saveBtn, "background-color: #fca015")
+}
+saveBtn.onmouseleave = function(){
+    HoverExit(saveBtn, "background-color: #e48a02")
+}
+saveBtn.onclick = function(){
+    SaveData()
+}
+resetDataBtn.onmouseenter = function(){
+    HoverEnter(resetDataBtn, "background-color: #fca015")
+}
+resetDataBtn.onmouseleave = function(){
+    HoverExit(resetDataBtn, "background-color: #e48a02")
+}
+resetDataBtn.onclick = function(){
+    ResetData()
 }
 clickPumpkin.onmouseenter = function(){
     PumpkinHoverEnter()

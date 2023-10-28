@@ -46,6 +46,9 @@
     font-family: Roboto;
     font-size: 175%;
 }
+#ResetData {
+    bottom: 20%;
+}
 
 .CurrencyFrame {
     width: 500px;
@@ -107,6 +110,22 @@
 #EndGameButton {
     top: 1%;
     font-size: 15px;
+    font-family: Roboto;
+}
+
+.SaveFrame {
+    width: 500px;
+    height: 50px;
+    border-radius: 25px;
+    position: absolute;
+    left: 50%;
+    top: 12%;
+    transform: translate(-50%, -50%);
+}
+#Save {
+    font-size: 15px;
+    font-family: Roboto;
+    top: 1%;
 }
 
 .UpgradesFrame {
