@@ -43,7 +43,7 @@ http.onload = function(){
         for (var upgrade of data.upgrades){
             var u = document.createElement("div")
             upgrades.appendChild(u)
-            u.style.backgroundColor = '#e48a02'
+            u.style.backgroundColor = '#e48a0299'
             u.style.width = 500 + 'px' 
             u.style.height = 150 + 'px'
 
@@ -51,6 +51,7 @@ http.onload = function(){
             u.appendChild(name)
             name.innerText = upgrade.name
             name.style.fontFamily = 'Roboto'
+            name.style.color = "#ffffff"
 
             var purchase = document.createElement("button")
             u.appendChild(purchase)
@@ -63,6 +64,7 @@ http.onload = function(){
             purchase.style.top = 75
             purchase.style.borderRadius = 5 + 'px'
             purchase.style.backgroundColor = '#ff0000'
+            purchase.style.color = "#ffffff"
             purchase.id = "Purchase:" + t
             purchase.type = "button"
             purchase.className = "UpgradeButton"
@@ -74,6 +76,7 @@ http.onload = function(){
             desc.style.fontSize = 25 + 'px'
             desc.style.position = 'Relative'
             desc.style.top = -50
+            desc.style.color = "#ffffff"
             u.id = "Upgrade:" + t
 
             if (!dataLoaded){
@@ -166,6 +169,7 @@ function EndGame(){
     if (pumpkins >= 75000000000){
         endScreen.setAttribute("style", "visibility: visible")
         game.setAttribute("style", "visibility: hidden")
+        document.body.style.background = "EndBackground.jpg"
     }
     else{
         alert("You need " + AbbrNumber(75000000000 - pumpkins) + " more pumpkins to buy The Pumpkin Lord!")
@@ -242,10 +246,10 @@ function UpdatePriceColors(){
         var buy = document.getElementById("Purchase:" + i)
         var price = upgradePrice[i]
         if (pumpkins < price){
-            buy.style.backgroundColor = "#ff0000"
+            buy.style.backgroundColor = "#ff000090"
         }
         else{
-           buy.style.backgroundColor = "#00ff00"
+           buy.style.backgroundColor = "#00ff0090"
         }
     }
 }

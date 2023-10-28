@@ -7,7 +7,7 @@
 .MainFrame {
     width: 500px;
     height: 750px;
-    background-color: #ffffff;
+    background-color: #00000090;
     border-radius: 25px;
     align-self: center;
     position: absolute;
@@ -19,6 +19,7 @@
 #Desc {
     text-align: center;
     font-family: Roboto;
+    color: #ffffff;
 }
 #DescImage {
     width: 275px;
@@ -33,6 +34,7 @@
     font-family: Roboto;
     text-align: center;
     font-size: 50px;
+    color: #ffffff;
 }
 
 .Button {
@@ -45,6 +47,7 @@
     background-color: #e48a02;
     font-family: Roboto;
     font-size: 175%;
+    color: #ffffff;
 }
 #ResetData {
     bottom: 20%;
@@ -53,7 +56,7 @@
 .CurrencyFrame {
     width: 500px;
     height: 50px;
-    background-color: #ffffff;
+    background-color: #00000090;
     border-radius: 25px;
     border: #e48a02 solid 5px;
     position: absolute;
@@ -76,12 +79,13 @@
     height: 50px;
     position: absolute;
     right: 20%;
+    color: #ffffff;
 }
 
 .BoostFrame {
     width: 500px;
     height: 50px;
-    background-color: #ffffff;
+    background-color: #00000090;
     border-radius: 25px;
     border: #e48a02 solid 5px;
     position: absolute;
@@ -96,6 +100,7 @@
     width: 500px;
     height: 50px;
     position: absolute;
+    color: #ffffff;
 }
 
 .EndGame {
@@ -131,7 +136,7 @@
 .UpgradesFrame {
     width: 500px;
     height: 750px;
-    background-color: #ffffff;
+    background-color: #00000090;
     border-radius: 25px;
     border: #e48a02 solid 5px;
     position: absolute;
@@ -139,10 +144,18 @@
 }
 #Upgrades {
     overflow: auto;
+    overflow-x: hidden;
     width: 500px;
     height: 578px;
-    
 }
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-thumb {
+   background-color: #ffffff;
+   border-radius: 5px;
+}
+
 
 #ClickPumpkin {
     position: absolute;
