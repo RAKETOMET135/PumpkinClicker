@@ -10,7 +10,8 @@
         {"name": "Pumpkin galaxy", "price": 36000000, "price_increase": 1.2, "upgrade": 455000},
         {"name": "Pumpkin universe", "price": 450000000, "price_increase": 1.2, "upgrade": 13000000},
         {"name": "Pumpkin demon", "price": 2000000000, "price_increase": 1.2, "upgrade": 125000000},
-        {"name": "Pumpkin sinister", "price": 15000000000, "price_increase": 1.3, "upgrade": 1755000000}
+        {"name": "Pumpkin sinister", "price": 15000000000, "price_increase": 1.3, "upgrade": 1755000000},
+        {"name": "Pumpkin existence", "price": 1500000000000, "price_increase": 1.35, "upgrade": 7755000000}
     ]
    
 }
